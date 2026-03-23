@@ -37,7 +37,7 @@
             // 
             // txtDisplay
             // 
-            this.txtDisplay.Location = new System.Drawing.Point(313, 130);
+            this.txtDisplay.Location = new System.Drawing.Point(324, 61);
             this.txtDisplay.Multiline = true;
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.ReadOnly = true;
@@ -46,32 +46,32 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(539, 178);
+            this.txtName.Location = new System.Drawing.Point(324, 126);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 22);
             this.txtName.TabIndex = 1;
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(549, 285);
+            this.txtInput.Location = new System.Drawing.Point(324, 184);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(100, 22);
             this.txtInput.TabIndex = 2;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(549, 61);
+            this.btnConnect.Location = new System.Drawing.Point(324, 296);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(100, 26);
             this.btnConnect.TabIndex = 3;
             this.btnConnect.Text = "btnConnect";
             this.btnConnect.UseVisualStyleBackColor = true;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(508, 92);
+            this.btnSend.Location = new System.Drawing.Point(324, 239);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.Size = new System.Drawing.Size(100, 25);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "btnSend";
             this.btnSend.UseVisualStyleBackColor = true;
