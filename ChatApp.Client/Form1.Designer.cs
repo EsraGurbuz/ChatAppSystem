@@ -28,13 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtDisplay = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtInput = new System.Windows.Forms.TextBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // txtDisplay
+            // 
+            this.txtDisplay.Location = new System.Drawing.Point(313, 130);
+            this.txtDisplay.Multiline = true;
+            this.txtDisplay.Name = "txtDisplay";
+            this.txtDisplay.ReadOnly = true;
+            this.txtDisplay.Size = new System.Drawing.Size(100, 22);
+            this.txtDisplay.TabIndex = 0;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(539, 178);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.TabIndex = 1;
+            // 
+            // txtInput
+            // 
+            this.txtInput.Location = new System.Drawing.Point(549, 285);
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(100, 22);
+            this.txtInput.TabIndex = 2;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(549, 61);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 3;
+            this.btnConnect.Text = "btnConnect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(508, 92);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "btnSend";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.txtInput);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtDisplay);
+            this.Name = "Form1";
+            this.Text = "ChatApp";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtDisplay;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtInput;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnSend;
     }
 }
 
