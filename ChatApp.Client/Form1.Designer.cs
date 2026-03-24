@@ -37,11 +37,12 @@
             // 
             // txtDisplay
             // 
-            this.txtDisplay.Location = new System.Drawing.Point(324, 61);
+            this.txtDisplay.Location = new System.Drawing.Point(256, 12);
             this.txtDisplay.Multiline = true;
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.ReadOnly = true;
-            this.txtDisplay.Size = new System.Drawing.Size(100, 22);
+            this.txtDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDisplay.Size = new System.Drawing.Size(252, 101);
             this.txtDisplay.TabIndex = 0;
             // 
             // txtName

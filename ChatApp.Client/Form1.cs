@@ -50,27 +50,51 @@ namespace ChatApp.Client
                     if (bytesRead == 0) break;
 
                     string json = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // Deserialization: Converting JSON back to object
                     var msg = JsonConvert.DeserializeObject<ChatMessage>(json);
 
-                    // Update UI safely from a background task
+                    // Polymorphism & UI Update
+                    // We ensure the UI thread handles the update
                     Invoke(new Action(() => {
-                        txtDisplay.AppendText($"[{msg.Timestamp:HH:mm}] {msg.Sender}: {msg.Message}{Environment.NewLine}");
+                        string formattedMessage = $"[{msg.Timestamp:HH:mm}] {msg.Sender}: {msg.Content}";
+                        txtDisplay.AppendText(formattedMessage + Environment.NewLine);
+
+                        // Auto-scroll to bottom
+                        txtDisplay.SelectionStart = txtDisplay.Text.Length;
+                        txtDisplay.ScrollToCaret();
                     }));
                 }
             }
-            catch { /* Handle disconnection */ }
+            catch (Exception ex)
+            {
+                Invoke(new Action(() => txtDisplay.AppendText("### Connection Lost ###" + Environment.NewLine)));
+            }
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            if (_stream == null) return;
+            // Check if we are connected and inputs are not empty
+            if (_stream == null || string.IsNullOrWhiteSpace(txtInput.Text) || string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                return;
+            }
 
-            var msg = new ChatMessage(txtName.Text, txtInput.Text);
-            string json = JsonConvert.SerializeObject(msg);
-            byte[] data = Encoding.UTF8.GetBytes(json);
+            try
+            {
+                var msg = new ChatMessage(txtName.Text, txtInput.Text);
+                string json = JsonConvert.SerializeObject(msg);
+                byte[] data = Encoding.UTF8.GetBytes(json);
 
-            await _stream.WriteAsync(data, 0, data.Length);
-            txtInput.Clear();
+                await _stream.WriteAsync(data, 0, data.Length);
+
+                // Clear input after sending
+                txtInput.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Send error: {ex.Message}");
+            }
         }
     }
 }
