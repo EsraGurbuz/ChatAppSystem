@@ -16,25 +16,34 @@ namespace ChatApp.Client
         public Form1()
         {
             InitializeComponent();
+
+            // Check these two lines carefully:
+            pnlLogin.Enabled = true;  // This must be TRUE at start
+            pnlChat.Enabled = false;  // This must be FALSE until connected
         }
 
         private async void btnConnect_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button Clicked!");
             try
             {
                 _client = new TcpClient();
-                // Connect asynchronously to not freeze the UI
+
+                // 1. Try to connect to the server
                 await _client.ConnectAsync("127.0.0.1", 5000);
                 _stream = _client.GetStream();
 
-                txtDisplay.AppendText("Connected to server!" + Environment.NewLine);
+                // 2. If connection is successful, change the UI state
+                pnlLogin.Enabled = false; // Locks the login part (Name and Connect button)
+                pnlChat.Enabled = true;   // Unlocks the chat part (Display, Input and Send button)
 
-                // Start listening for incoming messages in background
+                txtDisplay.AppendText("### Connected to server! ###" + Environment.NewLine);
+
+                // 3. Start listening for messages in the background
                 _ = ReceiveMessagesAsync();
             }
             catch (Exception ex)
             {
+                // If connection fails, stay in the login state and show error
                 MessageBox.Show($"Connection failed: {ex.Message}");
             }
         }
@@ -95,6 +104,11 @@ namespace ChatApp.Client
             {
                 MessageBox.Show($"Send error: {ex.Message}");
             }
+        }
+
+        private void pnlChat_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
