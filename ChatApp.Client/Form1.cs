@@ -57,7 +57,7 @@ namespace ChatApp.Client
                     // Polymorphism & UI Update
                     // We ensure the UI thread handles the update
                     Invoke(new Action(() => {
-                        string formattedMessage = $"[{msg.Timestamp:HH:mm}] {msg.Sender}: {msg.Content}";
+                        string formattedMessage = $"[{msg.Timestamp:HH:mm}] {msg.Sender}: {msg.Message}";
                         txtDisplay.AppendText(formattedMessage + Environment.NewLine);
 
                         // Auto-scroll to bottom
