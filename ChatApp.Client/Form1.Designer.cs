@@ -64,8 +64,9 @@
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(100, 26);
             this.btnConnect.TabIndex = 3;
-            this.btnConnect.Text = "btnConnect";
+            this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnSend
             // 
@@ -73,7 +74,7 @@
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(100, 25);
             this.btnSend.TabIndex = 4;
-            this.btnSend.Text = "btnSend";
+            this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 

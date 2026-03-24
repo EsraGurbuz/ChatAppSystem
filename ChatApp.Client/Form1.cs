@@ -20,6 +20,7 @@ namespace ChatApp.Client
 
         private async void btnConnect_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Button Clicked!");
             try
             {
                 _client = new TcpClient();
