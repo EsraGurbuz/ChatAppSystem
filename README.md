@@ -3,7 +3,7 @@
 This project was developed as part of the **Object-Oriented Programming (OOP)** course at **Fırat University, Software Engineering Department**. The application is a chat platform featuring a Server-Client architecture running on an asynchronous structure.
 
 ## 🎓 Student Information
-* **Name & Surname:** Esra [Your Surname]
+* **Name & Surname:** Esra Gürbüz
 * **Student ID:** 230543001
 * **University:** Fırat University
 * **Department:** Software Engineering (Sophomore / 2nd Year)
