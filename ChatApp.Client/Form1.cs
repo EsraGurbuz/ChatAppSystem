@@ -17,7 +17,6 @@ namespace ChatApp.Client
         {
             InitializeComponent();
 
-            // Check these two lines carefully:
             pnlLogin.Enabled = true;  // This must be TRUE at start
             pnlChat.Enabled = false;  // This must be FALSE until connected
         }
